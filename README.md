@@ -8,7 +8,8 @@
 - 只接受 `touch` 事件,在浏览器中调试需打开移动端调试工具
 
 ## 快速使用
-> 你只需要引入 `./dist/image-swipe.js`
+> 你只需要引入 `./dist/image-swipe.js`  
+> 你也可以从 [image-swipe.js](./dist/image-swipe.js) 中复制 类 `imageSwipeClass` 到你的 js 文件中
 
 ```html
 <script src="./dist/image-swipe.js"></script>
