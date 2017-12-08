@@ -31,10 +31,9 @@
       imageStyle && Object.assign(this.imageStyle, imageStyle)
 
       this.renderImages()
-
-      this.content.addEventListener('touchstart', this.touchEventStart.bind(this), false);
-      this.content.addEventListener('touchmove', this.touchEventMove.bind(this), false);
-      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), false);
+      this.content.addEventListener('touchstart', this.touchEventStart.bind(this), false)
+      this.content.addEventListener('touchmove', this.touchEventMove.bind(this), false)
+      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), false)
     }
 
     // 渲染图片
@@ -65,7 +64,6 @@
     // 滑动开始事件
     touchEventStart(e) {
       const { pageX, pageY } = e.targetTouches[0]
-      // console.log('start', pageX, pageY)
       this.startX = pageX
       this.startY = pageY
       this.touchInterval = setInterval(() => {
@@ -77,9 +75,7 @@
     touchEventMove(e) {
       const { pageX, pageY } = e.targetTouches[0]
       const offSetX = pageX - this.startX + (~this.imgContent.offsetWidth * this.imageIndex)
-      // console.log('Move', offSetX)
       this.imgContent.style.left = `${offSetX}px`
-
     }
 
     // 滑动结束事件
