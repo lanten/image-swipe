@@ -1,7 +1,5 @@
 (() => {
-
   class imageSwipeClass {
-
     // 初始化
     init(imgArr, el, options = {}) {
       this.options = options
@@ -44,7 +42,6 @@
       this.contentWidth = content.offsetWidth
       this.contentHeight = content.offsetHeight
       this.imgContent = document.createElement('div')
-
       const { animationTime = 800, animationFun = 'cubic-bezier(0.175, 0.82, 0.265, 1)' } = this.options
 
       Object.assign(this.imgContent.style, {
@@ -62,7 +59,6 @@
         this.imgContent.appendChild(imgItem)
       })
       this.content.appendChild(this.imgContent)
-
       Object.assign(this.content.style, this.contentStyle)
     }
 
@@ -126,7 +122,6 @@
       let toValue = `-${this.imageIndex * this.contentWidth}` - 0
       this.imgContent.style.left = toValue + 'px'
     }
-
   }
 
   window.imageSwipe = new imageSwipeClass()
