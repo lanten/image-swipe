@@ -4,7 +4,7 @@
 ## 说明
 - 这是一个移动端图片预览组件
 - 不兼容 IE
-- 原生无依赖,120行左右代码量,修改方便
+- 原生无依赖,`120`行左右代码量,修改方便
 - 只接受 `touch` 事件,在浏览器中调试需打开移动端调试工具
 
 ## 快速使用
@@ -41,7 +41,7 @@ document.querySelector('body').addEventListener('touchstart', function (ev) {
 参数|说明|类型|默认值
 ---|---|---|---
 background|容器背景颜色| string|'#444'
-contentStyle|容器样式(类似react样式写法)|object|
+contentStyle|容器样式(类似react样式写法)|object
 imageStyle|图片元素样式| object|{}
 switchOffset|场景切换的距离| number|2.5 (屏幕宽度 / 2.5)
 animationTime|动画持续时间| number|800 (ms)
