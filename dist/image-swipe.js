@@ -47,9 +47,9 @@
       }, controllerStyle)
 
       this.renderImages()
-      this.content.addEventListener('touchstart', this.touchEventStart.bind(this), false)
-      this.content.addEventListener('touchmove', this.touchEventMove.bind(this), false)
-      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), true)
+      this.content.addEventListener('touchstart', this.touchEventStart.bind(this))
+      this.content.addEventListener('touchmove', this.touchEventMove.bind(this))
+      this.content.addEventListener('touchend', this.touchEventEnd.bind(this))
     }
 
     // 渲染图片
