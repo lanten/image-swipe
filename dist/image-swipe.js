@@ -96,8 +96,7 @@
 
     // 滑动开始事件
     touchEventStart(e) {
-      console.log(e)
-      const { pageX, pageY } = e.changedTouches[0]
+      const { pageX, pageY } = e.targetTouches[0]
       this.startX = pageX
       this.startY = pageY
       this.touchInterval = setInterval(() => {
@@ -107,7 +106,7 @@
 
     // 滑动时事件
     touchEventMove(e) {
-      const { pageX, pageY } = e.changedTouches[0]
+      const { pageX, pageY } = e.targetTouches[0]
       const offSetX = pageX - this.startX + (~this.imgContent.offsetWidth * this.imageIndex)
       if (this.imgContent.style.transition != 'null') this.imgContent.style.transition = 'none'
       this.imgContent.style.left = `${offSetX}px`
@@ -116,7 +115,8 @@
 
     // 滑动结束事件
     touchEventEnd(e) {
-      const { pageX, pageY } = e.changedTouches[0]
+      alert(e.changedTouches.length)
+      const { pageX, pageY } = e.changedTouches[e.changedTouches.length - 1]
       const offSetXEnd = pageX - this.startX
       const isLeft = offSetXEnd >= 0 ? false : true
       const touchTime = this.touchTime
