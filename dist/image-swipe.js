@@ -54,24 +54,27 @@
 
     // 渲染图片
     renderImages() {
-      const { controller = true, controllerItemStyle = {}, imageItemClick } = this.options
+      const { controller = true, controllerItemStyle = {}, imageItemClick, jumpImage = true } = this.options
       this.contentWidth = content.offsetWidth
       this.contentHeight = content.offsetHeight
       this.imgContent = document.createElement('div')
       this.controllerContent = document.createElement('div')
       Object.assign(this.imgContent.style, {
         position: 'relative',
-        height: '100%'
+        height: '100%',
+        zIndex:20,
       })
       Object.assign(this.controllerContent.style, this.controllerStyle)
       this.imgArr.forEach((val, i) => {
         let left = this.contentWidth * i
-        let imgItem = document.createElement('div')
+        let imgItem = document.createElement('a')
         Object.assign(imgItem.style, Object.assign(this.imageStyle, {
+          display: 'block',
           left: `${left}px`,
           backgroundImage: `url('${val}')`,
         }))
 
+        if (jumpImage) imgItem.href = val
         if (imageItemClick) imgItem.onclick = () => imageItemClick(val, i)
         this.imgContent.appendChild(imgItem)
 
