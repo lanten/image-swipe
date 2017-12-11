@@ -46,3 +46,6 @@ imageStyle|图片元素样式| object|{}
 switchOffset|场景切换的距离| number|2.5 (屏幕宽度 / 2.5)
 animationTime|动画持续时间| number|800 (ms)
 animationFun|动画函数| string|'cubic-bezier(0.175, 0.82, 0.265, 1)'
+controller|是否显示指示器| Boolean|true
+controllerStyle|指示器容器样式| object|{}
+controllerItemStyle|指示器样式| object|{}
