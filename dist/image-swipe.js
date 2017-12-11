@@ -72,7 +72,7 @@
           backgroundImage: `url('${val}')`,
         }))
 
-        // if (imageItemClick) imgItem.onclick = () => imageItemClick(val, i)
+        if (imageItemClick) imgItem.onclick = () => imageItemClick(val, i)
         this.imgContent.appendChild(imgItem)
 
         if (controller) {
