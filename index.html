@@ -9,7 +9,7 @@
 <body style="padding: 0;margin: 0;width: 100%;height: 100%;overflow-x:hidden">
   <div id="content">
 
-
+123
   </div>
 </body>
 
@@ -22,29 +22,29 @@
     'http://i0.hdslb.com/bfs/drawyoo/bcdbd1d7e8eced61974e87f2592e0ecf80f8fff1.png'
   ]
 
-  // 禁用上下滚动
-  document.querySelector('body').addEventListener('touchstart', function (ev) {
-    ev.preventDefault();
-  });
+  // // 禁用上下滚动
+  // document.querySelector('body').addEventListener('touchstart', function (ev) {
+  //   ev.preventDefault();
+  // });
 
-  imageSwipe.init(imageList, document.getElementById('content'), {
-    contentStyle: {
-      backgroundColor: '#444',
-    },
-    controllerStyle: {
-      bottom: '30px'
-    },
-    switchOffset: 2.5,
-    animationTime: 650,
-    controller: true,
-    imageItemClick: (imageUrl, i) => {
-      window.location.href = imageUrl
-    }
-  })
+  // imageSwipe.init(imageList, document.getElementById('content'), {
+  //   contentStyle: {
+  //     backgroundColor: '#444',
+  //   },
+  //   controllerStyle: {
+  //     bottom: '30px'
+  //   },
+  //   switchOffset: 2.5,
+  //   animationTime: 650,
+  //   controller: true,
+  //   imageItemClick: (imageUrl, i) => {
+  //     window.location.href = imageUrl
+  //   }
+  // })
 
-  function imageItemClick(imageUrl, imageIndex) {
-    window.location.href = imgUrl
-  }
+  // function imageItemClick(imageUrl, imageIndex) {
+  //   window.location.href = imgUrl
+  // }
 
   document.getElementById('content').onclick = () => {
     alert(123)
