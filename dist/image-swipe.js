@@ -49,7 +49,7 @@
       this.renderImages()
       this.content.addEventListener('touchstart', this.touchEventStart.bind(this), false)
       this.content.addEventListener('touchmove', this.touchEventMove.bind(this), false)
-      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), false)
+      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), true)
     }
 
     // 渲染图片
@@ -83,6 +83,7 @@
             width: '24px',
             height: '24px',
             margin: '0 10px',
+            boxShadow: '1px 1px 2px 2px rgba(0,0,0,0.15)',
             transition: this.animation
           }, controllerItemStyle))
           this.controllerContent.appendChild(controllerItem)
@@ -115,8 +116,7 @@
 
     // 滑动结束事件
     touchEventEnd(e) {
-      alert(e.changedTouches.length)
-      const { pageX, pageY } = e.changedTouches[e.changedTouches.length - 1]
+      const { pageX, pageY } = e.changedTouches[0]
       const offSetXEnd = pageX - this.startX
       const isLeft = offSetXEnd >= 0 ? false : true
       const touchTime = this.touchTime
