@@ -6,10 +6,8 @@
   <title>图片预览</title>
 </head>
 
-<body style="padding: 0;margin: 0;width: 100%;height: 100%;overflow-x:hidden">
+<body style="padding: 0;margin: 0;width: 100%;height: 100%;overflow:hidden;position: relative;">
   <div id="content">
-      <div id="cc">1231231asdasd</div>
-
 
   </div>
 
@@ -19,15 +17,13 @@
 
 <script src="./dist/image-swipe.js"></script>
 <script>
-  const imageList = ['http://i0.hdslb.com/bfs/drawyoo/083e1198c87ba40c94396a130df8a3793dd7a03d.png',
-    'http://i0.hdslb.com/bfs/drawyoo/9aaa6884d3765077eeabf94ac27d8ad6fd942d13.png',
-    'http://i0.hdslb.com/bfs/drawyoo/bcdbd1d7e8eced61974e87f2592e0ecf80f8fff1.png'
+  const imageList = [
+    './images/1.png',
+    './images/2.png',
+    './images/3.png',
   ]
 
-  // 禁用上下滚动
-  document.querySelector('body').addEventListener('touchstart', function (ev) {
-    ev.preventDefault();
-  });
+  document.addEventListener('touchmove', function(e){e.preventDefault()}, false)
 
   imageSwipe.init(imageList, document.getElementById('content'), {
     contentStyle: {
@@ -39,18 +35,8 @@
     switchOffset: 2.5,
     animationTime: 650,
     controller: true,
-    jumpImage:false,
-    // imageItemClick: (imageUrl, i) => {
-    //   alert(123)
-    //   // window.location.href = imageUrl
-    // }
+    imageItemClick: (imageUrl, i) => {
+      window.location.href = imageUrl
+    }
   })
-
-  document.getElementById('cc').onclick=()=>{
-    alert(123)
-  }
-
-  // console.log(JSON.stringify((imgUrl, i) => {
-  //     window.location.href = imgUrl
-  //   }))
 </script>

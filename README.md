@@ -14,9 +14,10 @@
 ```html
 <script src="https://lanten.github.io/image-swipe/dist/image-swipe.js"></script>
 <script>
-  const imageList = ['http://i0.hdslb.com/bfs/drawyoo/083e1198c87ba40c94396a130df8a3793dd7a03d.png',
-    'http://i0.hdslb.com/bfs/drawyoo/9aaa6884d3765077eeabf94ac27d8ad6fd942d13.png',
-    'http://i0.hdslb.com/bfs/drawyoo/bcdbd1d7e8eced61974e87f2592e0ecf80f8fff1.png'
+  const imageList = [
+    './images/1.png',
+    './images/2.png',
+    './images/3.png',
   ]
 
   imageSwipe.init(imageList, document.getElementById('content'), {
@@ -32,9 +33,7 @@
 ## 禁用垂直滚动
 ```js
 // 在你的 js 中加入此代码
-document.querySelector('body').addEventListener('touchstart', function (ev) {
-	ev.preventDefault();
-});
+document.addEventListener('touchmove', function(e){e.preventDefault()}, false)
 ```
 
 ## options
@@ -49,4 +48,4 @@ animationFun|动画函数| string|'cubic-bezier(0.175, 0.82, 0.265, 1)'
 controller|是否显示指示器| Boolean|true
 controllerStyle|指示器容器样式| object|{}
 controllerItemStyle|指示器样式| object|{}
-imageItemClick|图片点击毁掉| function 返回(imageUrl,imageIndex) | null
+imageItemClick|图片点击事件| function 返回(imageUrl,imageIndex) | null

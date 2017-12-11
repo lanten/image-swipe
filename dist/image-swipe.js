@@ -47,14 +47,14 @@
       }, controllerStyle)
 
       this.renderImages()
-      this.content.addEventListener('touchstart', this.touchEventStart.bind(this))
-      this.content.addEventListener('touchmove', this.touchEventMove.bind(this))
-      this.content.addEventListener('touchend', this.touchEventEnd.bind(this))
+      this.content.addEventListener('touchstart', this.touchEventStart.bind(this), false)
+      this.content.addEventListener('touchmove', this.touchEventMove.bind(this), false)
+      this.content.addEventListener('touchend', this.touchEventEnd.bind(this), false)
     }
 
     // 渲染图片
     renderImages() {
-      const { controller = true, controllerItemStyle = {}, imageItemClick, jumpImage = true } = this.options
+      const { controller = true, controllerItemStyle = {}, imageItemClick } = this.options
       this.contentWidth = content.offsetWidth
       this.contentHeight = content.offsetHeight
       this.imgContent = document.createElement('div')
@@ -62,19 +62,18 @@
       Object.assign(this.imgContent.style, {
         position: 'relative',
         height: '100%',
-        zIndex:20,
+        zIndex: 20,
       })
       Object.assign(this.controllerContent.style, this.controllerStyle)
       this.imgArr.forEach((val, i) => {
         let left = this.contentWidth * i
-        let imgItem = document.createElement('a')
+        let imgItem = document.createElement('div')
         Object.assign(imgItem.style, Object.assign(this.imageStyle, {
           display: 'block',
           left: `${left}px`,
           backgroundImage: `url('${val}')`,
         }))
 
-        if (jumpImage) imgItem.href = val
         if (imageItemClick) imgItem.onclick = () => imageItemClick(val, i)
         this.imgContent.appendChild(imgItem)
 
@@ -102,18 +101,18 @@
 
     // 滑动开始事件
     touchEventStart(e) {
-      const { pageX, pageY } = e.targetTouches[0]
-      this.startX = pageX
-      this.startY = pageY
-      this.touchInterval = setInterval(() => {
+      const { clientX } = e.changedTouches[0]
+      this.startX = clientX
+      if (!this.touchInterval) this.touchInterval = setInterval(() => {
         this.touchTime++
       }, 1)
     }
 
     // 滑动时事件
     touchEventMove(e) {
-      const { pageX, pageY } = e.targetTouches[0]
-      const offSetX = pageX - this.startX + (~this.imgContent.offsetWidth * this.imageIndex)
+      console.log(e)
+      const { clientX } = e.changedTouches[0]
+      const offSetX = clientX - this.startX + (~this.imgContent.offsetWidth * this.imageIndex)
       if (this.imgContent.style.transition != 'null') this.imgContent.style.transition = 'none'
       this.imgContent.style.left = `${offSetX}px`
       if (this.imageIndex >= 0) this.controllerContent.children[this.imageIndex].style.backgroundColor = `rgba(255,255,255,0.45)`
@@ -121,12 +120,13 @@
 
     // 滑动结束事件
     touchEventEnd(e) {
-      const { pageX, pageY } = e.changedTouches[0]
-      const offSetXEnd = pageX - this.startX
+      const { clientX } = e.changedTouches[0]
+      const offSetXEnd = clientX - this.startX
       const isLeft = offSetXEnd >= 0 ? false : true
       const touchTime = this.touchTime
       let isChange = false
       clearInterval(this.touchInterval)
+      delete this.touchInterval
       this.touchTime = 0
 
       if (touchTime >= 10 && touchTime <= 100 && (offSetXEnd < 0 ? ~offSetXEnd : offSetXEnd >= 100)) {
