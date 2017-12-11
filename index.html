@@ -25,9 +25,9 @@
   ]
 
   // 禁用上下滚动
-  // document.querySelector('body').addEventListener('touchstart', function (ev) {
-  //   ev.preventDefault();
-  // });
+  document.querySelector('body').addEventListener('touchstart', function (ev) {
+    ev.preventDefault();
+  });
 
   imageSwipe.init(imageList, document.getElementById('content'), {
     contentStyle: {
