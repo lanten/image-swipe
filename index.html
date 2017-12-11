@@ -37,8 +37,16 @@
     switchOffset: 2.5,
     animationTime: 650,
     controller: true,
-    imageItemClick: (imgUrl, i) => {
-      window.location.href = imgUrl
+    imageItemClick: (imageUrl, i) => {
+      window.location.href = imageUrl
     }
   })
+
+  function imageItemClick(imageUrl, imageIndex) {
+    window.location.href = imgUrl
+  }
+
+  // console.log(JSON.stringify((imgUrl, i) => {
+  //     window.location.href = imgUrl
+  //   }))
 </script>

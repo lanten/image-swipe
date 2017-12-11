@@ -49,3 +49,4 @@ animationFun|动画函数| string|'cubic-bezier(0.175, 0.82, 0.265, 1)'
 controller|是否显示指示器| Boolean|true
 controllerStyle|指示器容器样式| object|{}
 controllerItemStyle|指示器样式| object|{}
+imageItemClick|图片点击毁掉| function 返回(imageUrl,imageIndex) | null

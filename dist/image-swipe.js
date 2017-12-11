@@ -71,7 +71,7 @@
           left: `${left}px`,
           backgroundImage: `url('${val}')`,
         }))
-        if (imageItemClick) imgItem.onclick = imageItemClick.bind(this, val, i)
+        if (imageItemClick) imgItem.addEventListener('click', imageItemClick.bind(this, val, i))
         this.imgContent.appendChild(imgItem)
 
         if (controller) {
