@@ -31,11 +31,14 @@
     contentStyle: {
       backgroundColor: '#444',
     },
-    controllerStyle:{
-      bottom:'30px'
+    controllerStyle: {
+      bottom: '30px'
     },
     switchOffset: 2.5,
     animationTime: 650,
-    controller: true
+    controller: true,
+    imageItemClick: (imgUrl, i) => {
+      window.location.href = imgUrl
+    }
   })
 </script>

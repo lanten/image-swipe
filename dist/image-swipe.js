@@ -54,7 +54,7 @@
 
     // 渲染图片
     renderImages() {
-      const { controller = true, controllerItemStyle = {} } = this.options
+      const { controller = true, controllerItemStyle = {}, imageItemClick } = this.options
       this.contentWidth = content.offsetWidth
       this.contentHeight = content.offsetHeight
       this.imgContent = document.createElement('div')
@@ -71,6 +71,7 @@
           left: `${left}px`,
           backgroundImage: `url('${val}')`,
         }))
+        if (imageItemClick) imgItem.onclick = imageItemClick.bind(this, val, i)
         this.imgContent.appendChild(imgItem)
 
         if (controller) {
