@@ -8,11 +8,11 @@
 - 只接受 `touch` 事件,在浏览器中调试需打开移动端调试工具
 
 ## 快速使用
-> 你只需要引入 `./dist/image-swipe.js`  
+> 你只需要引入 `https://lanten.github.io/image-swipe/dist/image-swipe.js`  
 > 你也可以从 [image-swipe.js](./dist/image-swipe.js) 中复制 类 `imageSwipeClass` 到你的 js 文件中
 
 ```html
-<script src="./dist/image-swipe.js"></script>
+<script src="https://lanten.github.io/image-swipe/dist/image-swipe.js"></script>
 <script>
   const imageList = ['http://i0.hdslb.com/bfs/drawyoo/083e1198c87ba40c94396a130df8a3793dd7a03d.png',
     'http://i0.hdslb.com/bfs/drawyoo/9aaa6884d3765077eeabf94ac27d8ad6fd942d13.png',
