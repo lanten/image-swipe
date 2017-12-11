@@ -8,7 +8,16 @@
       this.imageIndex = 0
       this.touchTime = 0
 
-      const { background = '#444', contentStyle, imageStyle } = this.options
+      const {
+        background = '#444',
+        contentStyle,
+        imageStyle,
+        animationTime = 800,
+        animationFun = 'cubic-bezier(0.175, 0.82, 0.265, 1)'
+       } = this.options
+
+      this.animation = `all ${animationTime / 1000}s ${animationFun}`
+
       this.contentStyle = {
         backgroundColor: background,
         width: '100%',
@@ -41,12 +50,11 @@
       this.contentWidth = content.offsetWidth
       this.contentHeight = content.offsetHeight
       this.imgContent = document.createElement('div')
-      const { animationTime = 800, animationFun = 'cubic-bezier(0.175, 0.82, 0.265, 1)' } = this.options
+      const { } = this.options
 
       Object.assign(this.imgContent.style, {
         position: 'relative',
-        height: '100%',
-        transition: `all ${animationTime / 1000}s ${animationFun}`
+        height: '100%'
       })
       this.imgArr.forEach((val, i) => {
         let left = this.contentWidth * i
@@ -75,6 +83,7 @@
     touchEventMove(e) {
       const { pageX, pageY } = e.targetTouches[0]
       const offSetX = pageX - this.startX + (~this.imgContent.offsetWidth * this.imageIndex)
+      this.imgContent.style.transition = 'none'
       this.imgContent.style.left = `${offSetX}px`
     }
 
@@ -116,6 +125,7 @@
       }
 
       let toValue = `-${this.imageIndex * this.contentWidth}` - 0
+      this.imgContent.style.transition = this.animation
       this.imgContent.style.left = toValue + 'px'
     }
   }
