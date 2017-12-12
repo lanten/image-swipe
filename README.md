@@ -49,3 +49,6 @@ controller|是否显示指示器| Boolean|true
 controllerStyle|指示器容器样式| object|{}
 controllerItemStyle|指示器样式| object|{}
 imageItemClick|图片点击事件| function 返回(imageUrl,imageIndex) | null
+
+## LICENSE
+MIT
